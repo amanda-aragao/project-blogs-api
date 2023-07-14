@@ -8,6 +8,9 @@ const login = async (email, password) => {
   return loginUser;
 };
 
+const getEmailByUser = (email) => User.findOne({ where: { email } });
+
 module.exports = {
   login,
+  getEmailByUser,
 };
