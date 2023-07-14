@@ -20,8 +20,17 @@ const createNewUser = async (displayName, email, password, image) => {
 
 const getEmailByUser = (email) => User.findOne({ where: { email } });
 
+const getAllUsers = async () => {
+ const getUsers = await User.findAll({ attributes: { exclude: ['password'] } }); 
+ if (!getUsers) {
+  return { message: 'Users not found' };
+ }
+ return getUsers;
+};
+
 module.exports = {
   login,
   getEmailByUser,
   createNewUser,
+  getAllUsers,
 };

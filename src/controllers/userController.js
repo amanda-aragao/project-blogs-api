@@ -14,4 +14,14 @@ const createNewUser = async (req, res) => {
   return res.status(201).json({ email: user.email, token });
 };
 
-module.exports = { createNewUser };
+const getAllUsers = async (req, res) => {
+  const infoUsers = req.body;
+  const response = await userService.getAllUsers(infoUsers);
+  console.log(response);
+  if (response.message) {
+    return res.status(404).json(response);
+  }
+  return res.status(200).json(response);
+};
+
+module.exports = { createNewUser, getAllUsers };
