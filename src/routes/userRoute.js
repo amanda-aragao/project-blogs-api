@@ -9,5 +9,6 @@ const { validateDisplayName,
 userRouter
 .post('/', validateDisplayName, validateEmail, validatePassword, userController.createNewUser);
 userRouter.get('/', validateToken, userController.getAllUsers);
+userRouter.get('/:id', validateToken, userController.getUserId);
 
 module.exports = userRouter;
