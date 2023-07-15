@@ -17,7 +17,7 @@ const createNewUser = async (req, res) => {
 const getAllUsers = async (req, res) => {
   const infoUsers = req.body;
   const response = await userService.getAllUsers(infoUsers);
-  console.log(response);
+  // console.log(response);
   if (response.message) {
     return res.status(404).json(response);
   }

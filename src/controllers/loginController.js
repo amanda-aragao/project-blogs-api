@@ -7,6 +7,7 @@ const login = async (req, res) => {
   if (response.message) {
     return res.status(400).json(response);
   }
+  
   const user = await userService.getEmailByUser(email);
   const { password: _password, ...allTheRestOfUser } = user.dataValues;
   const payload = { data: allTheRestOfUser };
