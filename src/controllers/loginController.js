@@ -5,7 +5,7 @@ const login = async (req, res) => {
   const { email, password } = req.body;
   const response = await userService.login(email, password);
   if (response.message) {
-    return res.status(400).json(response);
+    return res.status(400).json(response.message);
   }
   
   const user = await userService.getEmailByUser(email);

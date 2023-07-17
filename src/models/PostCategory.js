@@ -3,9 +3,9 @@ module.exports = (sequelize, DataTypes) => {
     postId:
     {
       type: DataTypes.INTEGER,
-      primaryKey: true,
-      field: 'post_id',
       allowNull: false,
+      field: 'post_id',
+      primaryKey: true,
       references: {
         model: 'blog_posts',
         key: 'id',
